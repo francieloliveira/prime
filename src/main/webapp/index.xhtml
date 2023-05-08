@@ -9,31 +9,42 @@
 <h:head>
     <title>TESTE</title>
 </h:head>
-<h:body>
+<h:body style="margin-left:50px">
     <p:spinner />
     <p:button value="Olá Mundo Primefaces"/>
+    <h:form id="frm">
 
-    <p:dataTable emptyMessage="Não há people cadastradas"
-                 var="mb" value="#{mbPessoa.getPessoaList()}" styleClass="order-table"
-                 headerClass="order-table-header"
-                 rowClasses="order-table-odd-row,order-table-even-row" paginator="true"
-                 rows="20">
-        <p:column headerText="CPF" sortBy="#{mb.cpf}" filterBy="#{mb.cpf}"
-                  filterMatchMode="exact">
-            <h:outputText value="#{mb.cpf}"/>
-        </p:column>
-        <p:column headerText="NOME" sortBy="#{mb.nome}" filterBy="#{mb.nome}"
-                  filterMatchMode="exact">
-            <h:outputText value="#{mb.nome}"/>
-        </p:column>
-        <p:column headerText="EMAIL" sortBy="#{mb.email}" filterBy="#{mb.email}"
-                  filterMatchMode="exact">
-            <h:outputText value="#{mb.email}"/>
-        </p:column>
-        <p:column headerText="TELEFONE" sortBy="#{mb.telefone}"
-                  filterBy="#{mb.telefone}" filterMatchMode="exact">
-            <h:outputText value="#{mb.telefone}"/>
-        </p:column>
+        <p:panel id="panel" widgetVar="panelR" header="Datatable Pessoas:" closable="false">
+            <f:facet name="actions">
+                <p:commandButton title="Refresh" icon="ui-icon-refresh"
+                                 action="#{mbPessoa.updatePessoaList()}"
+                                 process="@this" update=":frm" />
+            </f:facet>
+
+            <div class="card">
+                <p:dataTable var="pessoa" value="#{mbPessoa.pessoaList}" paginator="true" rows="15">
+                    <p:column headerText="Id:" style="text-align:center" sortBy="#{pessoa.id}">
+                        <h:outputText value="#{pessoa.id}" />
+                    </p:column>
+
+                    <p:column headerText="E-mail:" style="text-align:center" sortBy="#{pessoa.email}">
+                        <h:outputText value="#{pessoa.email}" />
+                    </p:column>
+
+                    <p:column headerText="Telefone:" style="text-align:center" sortBy="#{pessoa.telefone}">
+                        <h:outputText value="#{pessoa.telefone}" />
+                    </p:column>
+
+                    <p:column headerText="CPF:" style="text-align:center" sortBy="#{pessoa.cpf}">
+                        <h:outputText value="#{pessoa.cpf}" />
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </p:panel>
+        </h:form>
+
+</h:body>
+</html>
 
 <!--        <p:column headerText="AÇÃO">-->
 <!--            <p:commandButton value="Editar" action="#{mbPessoa.editPessoa}"-->
@@ -47,6 +58,4 @@
 <!--                                             target="#{mbPessoa.selectedCPF}"/>-->
 <!--            </p:commandButton>-->
 <!--        </p:column>-->
-    </p:dataTable>
-</h:body>
-</html>
+<!--    </p:dataTable>-->

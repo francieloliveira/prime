@@ -11,7 +11,7 @@ public class PessoaDAO {
     EntityTransaction transaction = entityManager.getTransaction();
 
     public List<PessoaEntity> listPessoas() {
-        List<PessoaEntity> listaPessoas = null;
+        List listaPessoas = null;
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             EntityTransaction transaction = entityManager.getTransaction();

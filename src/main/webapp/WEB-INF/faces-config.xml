@@ -5,17 +5,26 @@
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
   http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
   version="2.2">
+    <application>
+        <locale-config>
+            <default-locale>pt_BR</default-locale>
+        </locale-config>
+    </application>
+
      <managed-bean>
        <managed-bean-name>mbPessoa</managed-bean-name>
        <managed-bean-class>service.MBPessoa</managed-bean-class>
        <managed-bean-scope>session</managed-bean-scope>
      </managed-bean>
-     <navigation-rule>
-         <from-view-id>/index.xhtml</from-view-id>
-       <navigation-case>
-         <from-outcome>index</from-outcome>
-         <to-view-id>/index.xhtml</to-view-id>
-       </navigation-case>
+
+
+
+<!--     <navigation-rule>-->
+<!--         <from-view-id>/index.xhtml</from-view-id>-->
+<!--       <navigation-case>-->
+<!--         <from-outcome>index</from-outcome>-->
+<!--         <to-view-id>/index.xhtml</to-view-id>-->
+<!--       </navigation-case>-->
 <!--     <navigation-case>-->
 <!--         <from-outcome>insert</from-outcome>-->
 <!--         <to-view-id>/insert.xhtml</to-view-id>-->
@@ -24,5 +33,5 @@
 <!--         <from-outcome>update</from-outcome>-->
 <!--         <to-view-id>/update.xhtml</to-view-id>-->
 <!--       </navigation-case>-->
-     </navigation-rule>
+<!--     </navigation-rule>-->
 </faces-config>
