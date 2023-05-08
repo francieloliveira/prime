@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>TESTE</title>
+</h:head>
+<h:body>
+    <p:spinner />
+    <p:button value="Olá Mundo Primefaces"/>
+
+    <p:dataTable emptyMessage="Não há people cadastradas"
+                 var="mb" value="#{mbPessoa.getPessoaList()}" styleClass="order-table"
+                 headerClass="order-table-header"
+                 rowClasses="order-table-odd-row,order-table-even-row" paginator="true"
+                 rows="20">
+        <p:column headerText="CPF" sortBy="#{mb.cpf}" filterBy="#{mb.cpf}"
+                  filterMatchMode="exact">
+            <h:outputText value="#{mb.cpf}"/>
+        </p:column>
+        <p:column headerText="NOME" sortBy="#{mb.nome}" filterBy="#{mb.nome}"
+                  filterMatchMode="exact">
+            <h:outputText value="#{mb.nome}"/>
+        </p:column>
+        <p:column headerText="EMAIL" sortBy="#{mb.email}" filterBy="#{mb.email}"
+                  filterMatchMode="exact">
+            <h:outputText value="#{mb.email}"/>
+        </p:column>
+        <p:column headerText="TELEFONE" sortBy="#{mb.telefone}"
+                  filterBy="#{mb.telefone}" filterMatchMode="exact">
+            <h:outputText value="#{mb.telefone}"/>
+        </p:column>
+
+<!--        <p:column headerText="AÇÃO">-->
+<!--            <p:commandButton value="Editar" action="#{mbPessoa.editPessoa}"-->
+<!--                             ajax="false">-->
+<!--                <f:setPropertyActionListener value="#{mb.cpf}"-->
+<!--                                             target="#{mbPessoa.selectedCPF}"/>-->
+<!--            </p:commandButton>-->
+<!--            <p:commandButton value="Excluir" action="#{mbPessoa.deletePessoa}"-->
+<!--                             ajax="false">-->
+<!--                <f:setPropertyActionListener value="#{mb.cpf}"-->
+<!--                                             target="#{mbPessoa.selectedCPF}"/>-->
+<!--            </p:commandButton>-->
+<!--        </p:column>-->
+    </p:dataTable>
+</h:body>
+</html>
